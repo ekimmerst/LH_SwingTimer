@@ -1,5 +1,5 @@
 local driver = CreateFrame("Frame")
-local bar, started, duration
+local bar, endMarker, remainingText, started, duration
 local layoutElapsed = 0
 
 local function Readable(value)
@@ -25,9 +25,20 @@ local function Layout()
         bar:SetOrientation("HORIZONTAL")
         bar:SetReverseFill(false)
         bar:SetMinMaxValues(0, 1)
+
+        endMarker = bar:CreateTexture(nil, "OVERLAY")
+        endMarker:SetColorTexture(1, 0.78, 0.15, 1)
+        endMarker:SetPoint("CENTER", bar, "RIGHT", 0, 0)
+
+        remainingText = bar:CreateFontString(nil, "OVERLAY")
+        remainingText:SetFont(STANDARD_TEXT_FONT, 11, "OUTLINE")
+        remainingText:SetTextColor(1, 1, 1, 1)
+        remainingText:SetPoint("LEFT", endMarker, "RIGHT", 4, 0)
+        remainingText:SetJustifyH("LEFT")
     end
     -- Two physical pixels, independent of the cast bar's own scale.
     bar:SetHeight(2 / bar:GetEffectiveScale())
+    endMarker:SetSize(1 / bar:GetEffectiveScale(), 8 / bar:GetEffectiveScale())
     bar:ClearAllPoints()
     bar:SetPoint("TOPLEFT", anchor, "BOTTOMLEFT", 0, -2)
     bar:SetPoint("TOPRIGHT", anchor, "BOTTOMRIGHT", 0, -2)
@@ -52,11 +63,14 @@ local function Update(_, elapsed)
         Layout()
     end
     bar:SetValue(math.max(0, progress))
+    remainingText:SetFormattedText("%.1f", math.max(0, duration * (1 - progress)))
 end
 
 driver:SetScript("OnEvent", function(_, event, swingDuration, swingType)
     if event == "PLAYER_SWING" then
-        if not Readable(swingType) or swingType ~= Enum.PlayerSwingType.MainHand then return end
+        if not Readable(swingType) then return end
+        if swingType ~= Enum.PlayerSwingType.MainHand
+            and swingType ~= Enum.PlayerSwingType.Ranged then return end
         if not Readable(swingDuration) or type(swingDuration) ~= "number" or swingDuration <= 0 then
             Stop()
             return
@@ -65,6 +79,7 @@ driver:SetScript("OnEvent", function(_, event, swingDuration, swingType)
         started, duration = GetTime(), swingDuration
         layoutElapsed = 0
         bar:SetValue(0)
+        remainingText:SetFormattedText("%.1f", duration)
         bar:Show()
         driver:SetScript("OnUpdate", Update)
     elseif event == "WEAPON_SLOT_CHANGED" then
