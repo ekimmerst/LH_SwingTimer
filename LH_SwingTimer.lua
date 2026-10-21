@@ -16,7 +16,7 @@ local function Layout()
     if not anchor then return false end
     if not bar then
         -- UIParent keeps the timer visible when the cast bar itself is hidden.
-        bar = CreateFrame("StatusBar", "MiniSwingTimerBar", UIParent)
+        bar = CreateFrame("StatusBar", "LH_SwingTimerBar", UIParent)
         bar:Hide()
         bar:EnableMouse(false)
         bar:SetFrameStrata("HIGH")

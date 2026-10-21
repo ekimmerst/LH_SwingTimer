@@ -1,12 +1,29 @@
-# MiniSwingTimer
+# LH_SwingTimer
 
-Minimaler Mainhand- und Fernkampf-Swingtimer fuer WoW Forever Beta (Interface 16001).
+Version: 1.0.2. WoW Forever Beta (Interface 16001).
 
-- Goldener Balken, 2 Bildschirmpixel hoch, mit einem 8 Bildschirmpixel hohen Strich am rechten Ende.
-- Rechts neben dem Strich steht die verbleibende Zeit in Sekunden mit einer Nachkommastelle, in kleiner weisser Schrift.
-- Fuellt sich nach einem Mainhand-Swing oder automatischen Fernkampfangriff von links nach rechts und verschwindet am Ende. Angezeigt wird jeweils der zuletzt gestartete Timer; Offhand-Swings werden ignoriert.
-- Verwendet das native Beta-Ereignis PLAYER_SWING, einschliesslich der vom Client gelieferten Swingdauer.
-- Folgt immer der Blizzard-Spieler-Castbar, auch wenn Quartz aktiv ist. Bleibt auch bei ausgeblendeter Castbar sichtbar.
-- Keine Bibliotheken, Einstellungen oder gespeicherten Variablen erforderlich.
+A minimal main-hand and ranged swing timer beneath Blizzard's player cast bar.
 
-Nach der Installation den Client neu starten und MiniSwingTimer in der Addonliste aktivieren. Falls Quartz ebenfalls seinen Swingtimer anzeigt, dort das Swing-Modul deaktivieren, um doppelte Balken zu vermeiden.
+## Features
+
+- A gold bar, two physical screen pixels high, with an eight-pixel vertical marker at its right edge.
+- Small white text beside the marker shows the remaining time in seconds to one decimal place.
+- The bar fills from left to right after a main-hand swing or automatic ranged attack and disappears when the timer ends. The most recently started timer is displayed; off-hand swings are ignored.
+- Uses the native beta `PLAYER_SWING` event and the swing duration supplied by the client.
+- Follows Blizzard's player cast bar even when Quartz is enabled. The timer remains visible when the cast bar itself is hidden.
+- No libraries, configuration, slash commands or saved variables are required.
+
+## Installation and upgrade
+
+Place the `LH_SwingTimer` folder in your game's `Interface/AddOns` folder. It must contain `LH_SwingTimer.toc` and `LH_SwingTimer.lua`. Restart WoW and enable **LH_SwingTimer** in the addon list.
+
+When upgrading from MiniSwingTimer, replace the old folder and fully restart WoW. Do not enable both versions together. There are no saved settings to migrate.
+
+If Quartz also displays its own swing timer, disable its Swing module to avoid duplicate bars.
+
+## Changelog
+
+### 1.0.2 - 2026-10-21
+
+- Renamed MiniSwingTimer to LH_SwingTimer, including the addon folder, Lua/TOC files, metadata and named bar frame.
+- Translated the README into English and added installation and upgrade instructions.

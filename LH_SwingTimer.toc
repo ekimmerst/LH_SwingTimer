@@ -1,7 +1,7 @@
 ## Interface: 16001
-## Title: MiniSwingTimer
+## Title: LH_SwingTimer
 ## Notes: Minimal golden main-hand and ranged swing timer below the player cast bar.
-## Author: MiniSwingTimer
-## Version: 1.0.1
+## Author: LH_SwingTimer
+## Version: 1.0.2
 
-MiniSwingTimer.lua
+LH_SwingTimer.lua
