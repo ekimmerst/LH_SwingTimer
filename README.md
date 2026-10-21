@@ -27,3 +27,7 @@ If Quartz also displays its own swing timer, disable its Swing module to avoid d
 
 - Renamed MiniSwingTimer to LH_SwingTimer, including the addon folder, Lua/TOC files, metadata and named bar frame.
 - Translated the README into English and added installation and upgrade instructions.
+
+## Required core addon
+
+Install and enable **LH_Tweaks** alongside this addon. LH_Tweaks is the shared LiteHawk configuration host and must load first. CurseForge releases must list LH_Tweaks as a required dependency so the client installs it automatically.
