@@ -1,5 +1,7 @@
 <h1 style="color: #d9a94b;">LH SwingTimer</h1>
 
+<p>Track main-hand melee and automatic ranged swing timing with small bars beneath the Blizzard player cast bar.</p>
+
 <p>A small golden timer beneath Blizzard's player cast bar for the next weapon swing. It keeps timing information close to a frame you already use.</p>
 
 <h2 style="color: #73c9c4;">What it tracks</h2>
