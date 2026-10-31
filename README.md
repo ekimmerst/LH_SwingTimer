@@ -16,6 +16,8 @@
 
 <p>Open <strong>Options → AddOns → LH Tweaks → LH SwingTimer</strong> to enable the timer and choose which attacks to track. Your choices are saved per character.</p>
 
+<p><strong>Retail 12.1.5:</strong> The native <code>PLAYER_SWING</code> event and <code>C_SwingTimer</code> source used by this timer are specific to WoW Forever. The addon loads on Retail and keeps the timer hidden because it cannot obtain reliable swing start times there.</p>
+
 <h2 style="color: #73c9c4;">More LH addons</h2>
 
 <p>Choose only the pieces you want. Each companion addon also requires LH Tweaks.</p>

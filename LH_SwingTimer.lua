@@ -13,6 +13,9 @@ local function Options()
     return LH_SwingTimerDB
 end
 function Addon:GetOption(key) return Options()[key] end
+function Addon:IsAvailable()
+    return C_SwingTimer and Enum and Enum.PlayerSwingType and true or false
+end
 
 local function Readable(value)
     return not (issecretvalue and issecretvalue(value))
@@ -164,6 +167,10 @@ end
 
 SLASH_LH_SWINGTIMER1 = "/lh_swingtimer"
 SlashCmdList.LH_SWINGTIMER = function(message)
+    if not Addon:IsAvailable() then
+        print("LH_SwingTimer: Native swing timing is unavailable on this client.")
+        return
+    end
     local command = (message or ""):lower():match("^%s*(.-)%s*$")
     if command == "" and Addon.category and Settings and Settings.OpenToCategory then
         Settings.OpenToCategory(Addon.category:GetID())
