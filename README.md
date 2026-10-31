@@ -43,5 +43,13 @@
 
 <p><strong>LH Tweaks is required</strong> and must be installed alongside LH SwingTimer. I made this for my own combat UI, and I'm glad if it helps yours. If you notice a swing type or ability that changes the timing unexpectedly, please tell me in the CurseForge comments.</p>
 
+<h2 style="color: #73c9c4;">Changelog</h2>
+
+<p><strong>1.1.0 - Forever</strong></p>
+
+<ul>
+  <li>No gameplay changes in this Forever branch; the timer continues to use Forever's native swing events.</li>
+</ul>
+
 <hr>
-<p><sup>*</sup> Implemented with the help of Codex and GPT-6-SOL and tested by me as thoroughly as I could in the WoW beta client. Some class or race combinations may still need work; please report anything you notice.</p>
+<p><sup>*</sup> Implemented with the help of Codex and GPT-6-SOL. Some class or race combinations may still need work; please report anything you notice.</p>
